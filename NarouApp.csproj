@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include=".lefthook\pre-commit\lint.sh" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Blazorise.Bulma" Version="1.6.0" />
+      <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.6.0" />
+      <PackageReference Include="coverlet.msbuild" Version="6.0.2">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map" />
+    </ItemGroup>
+</Project>
