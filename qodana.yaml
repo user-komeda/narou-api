@@ -1,0 +1,8 @@
+version: "1.0"
+exclude:
+  - name: All
+    paths:
+      - Components/App.razor
+linter: jetbrains/qodana-dotnet:2024.1
+profile:
+  name: qodana.recommended
