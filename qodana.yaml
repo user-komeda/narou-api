@@ -2,7 +2,18 @@ version: "1.0"
 exclude:
   - name: All
     paths:
-      - Components/App.razor
+      - Frontend/Components/App.razor
+  - name: CSharpWarnings__CS8618
+    paths:
+      - Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
+      - Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingEntity.cs
+  - name: UnusedMember.Global
+    paths:
+      - Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
+  - name: UnusedTypeParameter
+  - name: UnusedAutoPropertyAccessor.Global
+  - name: ClassNeverInstantiated.Global
+  - name: ArrangeTypeMemberModifiers
 linter: jetbrains/qodana-dotnet:2024.1
 profile:
   name: qodana.recommended
