@@ -4,7 +4,6 @@ public sealed class RankingService(IRankingRepository rankingRepository) : IRank
     public async Task<List<RankingDto>> GetDaialyRanking(string url) {
         Console.WriteLine(url);
         var result = await rankingRepository.GetDaialyRanking(url);
-        result.ForEach(static v => Console.WriteLine(v.Ncode, v.Pt, v.rank));
         return result;
     }
 }

@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <Content Include=".lefthook\pre-commit\lint.sh"/>
-        <Content Include="Frontend\Components\CustomComponent\Ranking\Application\RankingComponent.razor.cs"/>
+        <Content Include="Frontend\Components\CustomComponent\Ranking\Application\Daily\DailyRankingComponent.razor.cs" />
     </ItemGroup>
 
     <ItemGroup>
