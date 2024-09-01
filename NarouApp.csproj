@@ -36,6 +36,7 @@
 
     <ItemGroup>
         <AdditionalFiles Include="Frontend\Components\App.razor"/>
+        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Application\Monthly\MonthlyRankingComponent.razor" />
         <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Application\RankingConponent.razor"/>
         <AdditionalFiles Include="Frontend\Components\Layout\MainLayout.razor"/>
         <AdditionalFiles Include="Frontend\Components\Layout\NavMenu.razor"/>
