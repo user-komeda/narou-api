@@ -12,7 +12,6 @@ public sealed partial class DailyRankingComponent : ComponentBase {
     [Inject(Key = nameof(DailyRankingUseCase))] BaseUseCase<RankingInput, List<RankingOutPut>> RankingUseCase { get; set; } = null!;
 
     protected override async Task OnInitializedAsync() {
-        Console.WriteLine("call");
         _result = await RankingUseCase.Invoke(new RankingInput(DateTime.Now, FormatEnum.Json));
     }
 }
