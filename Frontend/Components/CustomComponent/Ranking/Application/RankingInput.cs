@@ -7,5 +7,6 @@ public sealed class RankingInput(DateTime dateTime, FormatEnum outFormat) {
     internal string ConvertDailyQuery() => $"{Url}?rtype={dateTime:yyyyMMdd}-d&out={outFormat.ToString().ToLower()}";
     internal string ConvertWeeklyQuery() => $"{Url}?rtype={dateTime:yyyyMMdd}-w&out={outFormat.ToString().ToLower()}";
     internal string ConvertMonthlyQuery() => $"{Url}?rtype={dateTime:yyyyMMdd}-m&out={outFormat.ToString().ToLower()}";
+    internal string ConvertQuarterlyQuery() => $"{Url}?rtype={dateTime:yyyyMMdd}-q&out={outFormat.ToString().ToLower()}";
 
 }
