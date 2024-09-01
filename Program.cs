@@ -3,6 +3,8 @@ using Blazorise.Bulma;
 using Blazorise.Icons.FontAwesome;
 using NarouApp.Frontend.Components;
 using NarouApp.Frontend.Components.CustomComponent.Ranking.Application;
+using NarouApp.Frontend.Components.CustomComponent.Ranking.Application.Daily;
+using NarouApp.Frontend.Components.CustomComponent.Ranking.Application.Weekly;
 using NarouApp.Frontend.Components.CustomComponent.Ranking.Domain;
 using NarouApp.Frontend.Components.CustomComponent.Ranking.Infrastructure;
 
@@ -17,7 +19,8 @@ builder.Services
     .AddBulmaProviders()
     .AddSingleton<IRankingService, RankingService>()
     .AddSingleton<IRankingRepository, RankingRepository>()
-    .AddSingleton(typeof(BaseUseCase<,>), typeof(RankingUseCase<,>))
+    .AddKeyedSingleton<BaseUseCase<RankingInput, List<RankingOutPut>>, DailyRankingUseCase>(nameof(DailyRankingUseCase))
+    .AddKeyedSingleton<BaseUseCase<RankingInput, List<RankingOutPut>>, WeeklyRankingUseCase>(nameof(WeeklyRankingUseCase))
     .AddFontAwesomeIcons();
 builder.Services.AddHttpClient<IRankingRepository, RankingRepository>(client => client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"));
 
