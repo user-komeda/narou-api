@@ -9,40 +9,76 @@
 
     <ItemGroup>
         <Content Include=".lefthook\pre-commit\lint.sh"/>
-        <Content Include="Frontend\Components\CustomComponent\Ranking\Application\Daily\DailyRankingComponent.razor.cs" />
+        <Content Include="Frontend\Components\CustomComponent\Ranking\Presentation\Daily\DailyRankingComponent.razor.cs" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Blazorise.Bulma" Version="1.6.0"/>
         <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.6.0"/>
-        <PackageReference Include="coverlet.msbuild" Version="6.0.2">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="8.0.7" />
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="8.0.8" />
         <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4"/>
         <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0-preview.7.24405.7"/>
+        <PackageReference Include="Moq" Version="4.20.70" />
     </ItemGroup>
 
     <ItemGroup>
         <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css"/>
         <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map"/>
+        <_ContentIncludedByDefault Remove="NarouAppTest\obj\NarouAppTest.csproj.nuget.dgspec.json" />
+        <_ContentIncludedByDefault Remove="NarouAppTest\obj\project.assets.json" />
+        <_ContentIncludedByDefault Remove="NarouAppTest\Counter.razor" />
+        <_ContentIncludedByDefault Remove="NarouAppTest\CounterRazorTests.razor" />
+        <_ContentIncludedByDefault Remove="NarouAppTest\_Imports.razor" />
     </ItemGroup>
 
     <ItemGroup>
         <Folder Include="Backend\application\"/>
         <Folder Include="Frontend\"/>
     </ItemGroup>
+    
+    <ItemGroup>
+        <Using Include="Bunit" />
+        <Using Include="Bunit.TestDoubles" />
+        <Using Include="Microsoft.Extensions.DependencyInjection" />
+        <Using Include="Xunit"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="bunit" Version="1.31.3" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+        <PackageReference Include="coverlet.collector" Version="6.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="RichardSzalay.MockHttp" Version="7.0.0" />
+        <PackageReference Include="xunit" Version="2.9.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
 
     <ItemGroup>
         <AdditionalFiles Include="Frontend\Components\App.razor"/>
         <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Application\Monthly\MonthlyRankingComponent.razor" />
-        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Application\RankingConponent.razor"/>
+        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Presentation\Monthly\MonthlyRankingComponentTests.razor" />
         <AdditionalFiles Include="Frontend\Components\Layout\MainLayout.razor"/>
         <AdditionalFiles Include="Frontend\Components\Layout\NavMenu.razor"/>
         <AdditionalFiles Include="Frontend\Components\Pages\Error.razor"/>
         <AdditionalFiles Include="Frontend\Components\Pages\Home.razor"/>
         <AdditionalFiles Include="Frontend\Components\Routes.razor"/>
         <AdditionalFiles Include="Frontend\Components\_Imports.razor"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="NarouAppTest\Counter.razor" />
+      <UpToDateCheckInput Remove="NarouAppTest\CounterRazorTests.razor" />
+      <UpToDateCheckInput Remove="NarouAppTest\_Imports.razor" />
     </ItemGroup>
 </Project>

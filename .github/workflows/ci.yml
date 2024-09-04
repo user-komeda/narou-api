@@ -11,3 +11,5 @@ jobs:
         uses: JetBrains/qodana-action@v2024.1
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+      - name: "test"
+        run: dotnet test
