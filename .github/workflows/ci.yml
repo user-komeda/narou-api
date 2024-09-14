@@ -11,29 +11,23 @@ on:
 jobs:
   qodana-front:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: NarouApp/
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2024.1.9
         with:
-          args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--project-dir,./
+          args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--source-directory,NarouApp/,--config,qodana-front.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       - name: "test"
         run: dotnet test
   qodana-backend:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: NarouBackend/
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2024.1.9
         with:
-          args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--project-dir,./
+          args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--source-directory,NarouBackend/,--config,qodana-backend.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
