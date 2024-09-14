@@ -20,6 +20,6 @@ exclude:
   - name: PropertyCanBeMadeInitOnly.Global
   - name: Html.PathError
 
-linter: jetbrains/qodana-dotnet:2024.1
+linter: jetbrains/qodana-dotnet:2024.1.3
 profile:
   name: qodana.recommended
