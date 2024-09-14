@@ -1,8 +1,9 @@
- pre-commit:
-   parallel: true
-   commands: 
-     test:
-       run: dotnet test
-   scripts:
-     "lint.sh":
-       runner: bash
+pre-commit:
+  commands:
+    test:
+      run: dotnet test
+  scripts:
+    "lint-front.sh":
+      runner: bash
+    "lint-backend.sh":
+      runner: bash
