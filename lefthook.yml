@@ -3,9 +3,6 @@ pre-commit:
   commands:
     test:
       run: dotnet test
-    front-lint:
-      root: NarouApp/
-      run: qodana scan -e QODANA_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmdhbml6YXRpb24iOiJwUVJsUSIsInByb2plY3QiOiIzN01ZayIsInRva2VuIjoiQUxQOVIifQ.8fn0dH5_7Aza9AHbHo_rK8JT9M0RzFTHUuYw-tLHF1c --fail-threshold 1 -s false --source-directory NarouApp/ --config qodana-front.yaml
-    backend-lint:
-      root: NarouBackend/
-      run: qodana scan -e QODANA_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmdhbml6YXRpb24iOiJwUVJsUSIsInByb2plY3QiOiIzN01ZayIsInRva2VuIjoiQUxQOVIifQ.8fn0dH5_7Aza9AHbHo_rK8JT9M0RzFTHUuYw-tLHF1c --fail-threshold 1 -s false --source-directory NarouBackend/ --config qodana-backend.yaml
+  scripts:
+    "lint.sh":
+      runner: bash

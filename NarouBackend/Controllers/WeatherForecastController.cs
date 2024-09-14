@@ -15,6 +15,6 @@ public class WeatherForecastController : ControllerBase {
     }
 
     [HttpGet(Name = "GetWeatherForecast")] public void Get() {
-        _logger.Log(LogLevel.Critical, "aaa");
+        _logger.Log(LogLevel.Critical, "controller");
     }
 }
