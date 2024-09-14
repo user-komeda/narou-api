@@ -9,11 +9,8 @@ on:
       - 'releases/*' # The release branches
 
 jobs:
-  qodana-front:
+  qodana:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./NarouApp/
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
@@ -22,14 +19,3 @@ jobs:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       - name: "test"
         run: dotnet test
-  qodana-backend:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./NarouBackend/
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.3
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
