@@ -15,7 +15,6 @@ jobs:
       run:
         working-directory: NarouApp/
     steps:
-      - run: pwd
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.3
@@ -31,7 +30,6 @@ jobs:
       run:
         working-directory: NarouBackend/
     steps:
-      - run: pwd
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.3
