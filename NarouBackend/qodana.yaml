@@ -1,2 +1,4 @@
 version: "1.0"
+dotnet:
+  solution: NarouBackend.sln
 linter: jetbrains/qodana-dotnet:2024.1

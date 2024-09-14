@@ -1,4 +1,6 @@
 version: "1.0"
+dotnet:
+  solution: NarouApp.sln
 exclude:
   - name: All
     paths:
