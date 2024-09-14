@@ -7,17 +7,18 @@ exclude:
       - Frontend/Components/App.razor
   - name: CSharpWarnings__CS8618
     paths:
-      - Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
-      - Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingEntity.cs
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingEntity.cs
   - name: UnusedMember.Global
     paths:
-      - Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Application/FormatEnum.cs
   - name: UnusedTypeParameter
   - name: UnusedAutoPropertyAccessor.Global
   - name: ClassNeverInstantiated.Global
   - name: ArrangeTypeMemberModifiers
   - name: ArrangeModifiersOrder
   - name: PropertyCanBeMadeInitOnly.Global
+  - name: Html.PathError
 
 linter: jetbrains/qodana-dotnet:2024.1
 profile:
