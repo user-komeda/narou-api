@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.3
+        with:
+          args: --property=qodana.net.solution=NarouApp.sln
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       - name: "test"
@@ -31,5 +33,7 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.3
+        with:
+          args: --property=qodana.net.solution=NarouBackend.sln
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
