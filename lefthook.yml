@@ -4,5 +4,7 @@ pre-commit:
     test:
       run: dotnet test
   scripts:
-    "lint.sh":
+    "lint-front.sh":
+      runner: bash
+    "lint-backend.sh":
       runner: bash
