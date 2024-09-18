@@ -25,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+          fetch-depth: 0  # a full history is required for pull request analysis
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@5983adcc5fdb505e156e5f756a80f2f979fb1ac0 # v2024.2.2
         with:
