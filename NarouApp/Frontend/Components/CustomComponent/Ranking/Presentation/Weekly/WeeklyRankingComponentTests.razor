@@ -1,3 +1,4 @@
+@using Blazored.LocalStorage
 @using Bunit
 @using Moq
 @using NarouApp.Frontend.Components.CustomComponent.Ranking.Application
@@ -10,16 +11,20 @@
     [Fact] public void ShouldRenderWeeklyRankingComponentResultNotEmpty() {
         var mockUseCase = new Mock<IBaseUseCase<RankingInput, List<RankingOutPut>>>();
         Services.AddKeyedSingleton(nameof(WeeklyRankingUseCase), mockUseCase.Object);
+        Services.AddBlazoredLocalStorage();
         mockUseCase.Setup(static useCase => useCase.Invoke(It.IsAny<RankingInput>())).Returns(Task.FromResult<List<RankingOutPut>>([new RankingOutPut("Ncode", 1, 1)]));
         var cut = Render(@<WeeklyRankingComponent/>);
         cut.Find("ul").MarkupMatches(@<ul>
-            <li>Ncode</li><li>1</li><li>1</li>
+            <span>
+                <li>Ncode</li><li>1</li><li>1</li>
+            </span>
         </ul>);
     }
 
     [Fact] public void ShouldRenderWeeklyRankingComponentResultEmpty() {
         var mockUseCase = new Mock<IBaseUseCase<RankingInput, List<RankingOutPut>>>();
         Services.AddKeyedSingleton(nameof(WeeklyRankingUseCase), mockUseCase.Object);
+        Services.AddBlazoredLocalStorage();
         mockUseCase.Setup(static useCase => useCase.Invoke(It.IsAny<RankingInput>())).Returns(Task.FromResult<List<RankingOutPut>>([]));
         var cut = Render(@<WeeklyRankingComponent/>);
         cut.Find("ul").MarkupMatches(@<ul></ul>);

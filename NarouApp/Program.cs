@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Blazorise;
 using Blazorise.Bulma;
 using Blazorise.Icons.FontAwesome;
@@ -26,6 +27,7 @@ builder.Services
     .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, WeeklyRankingUseCase>(nameof(WeeklyRankingUseCase))
     .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, MonthlyRankingUseCase>(nameof(MonthlyRankingUseCase))
     .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, QuarterlyRankingUseCase>(nameof(QuarterlyRankingUseCase))
+    .AddBlazoredLocalStorage()
     .AddFontAwesomeIcons();
 builder.Services.AddHttpClient<IRankingRepository, RankingRepositoryImpl>(client => client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"));
 

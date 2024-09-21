@@ -8,7 +8,7 @@ using RichardSzalay.MockHttp;
 
 public sealed class RankingRepositoryImplTests : TestContext {
     [Fact] public async Task ShouldHttpStatusOk() {
-        List<RankingDto> result = [new RankingDto(4158, 1, "N8692BO"), new RankingDto(3166, 2, "N0156BP")];
+        List<RankingDto> result = [new(4158, 1, "N8692BO"), new(3166, 2, "N0156BP")];
         var mockHttp = new MockHttpMessageHandler();
         mockHttp.Expect("https://api.syosetu.com/rank/rankget/")
             .Respond("application/json", "[{\"ncode\":\"N8692BO\",\"pt\":4158,\"rank\":1},{\"ncode\":\"N0156BP\",\"pt\":3166,\"rank\":2}]");

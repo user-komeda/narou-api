@@ -1,9 +1,2 @@
-@attribute [StreamRendering]
-
-<ul>
-    @foreach (var ranking in _result){
-    <li>@ranking.Ncode</li>
-    <li>@ranking.Pt</li>
-    <li>@ranking.rank</li>
-    }
-</ul>
+<h3>weeklyRanking</h3>
+<RankingComponent ResultData="@_result" />
