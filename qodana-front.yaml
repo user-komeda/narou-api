@@ -19,6 +19,10 @@ exclude:
   - name: ArrangeModifiersOrder
   - name: PropertyCanBeMadeInitOnly.Global
   - name: Html.PathError
+  - name: ArrangeObjectCreationWhenTypeEvident
+    paths:
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingEntityTests.cs
+
 
 linter: jetbrains/qodana-dotnet:2024.2
 profile:

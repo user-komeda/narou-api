@@ -1,0 +1,10 @@
+@rendermode InteractiveServer
+<ul>
+    @foreach (var ranking in ResultData){
+        <span @onclick="@(() => Click(ranking.Ncode))">
+            <li>@ranking.Ncode</li>
+            <li>@ranking.Pt</li>
+            <li>@ranking.rank</li>
+        </span>
+    }
+</ul>
