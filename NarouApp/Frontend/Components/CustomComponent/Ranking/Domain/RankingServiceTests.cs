@@ -6,7 +6,7 @@ using Moq;
 
 public sealed class RankingServiceTests : TestContext {
     [Fact] public async Task ShouldCallServiceStatus200() {
-        List<RankingDto> result = [new RankingDto(1, 1, "Ncode"), new RankingDto(2, 2, "Ncode")];
+        List<RankingDto> result = [new(1, 1, "Ncode"), new(2, 2, "Ncode")];
         var mockRepository = new Mock<IRankingRepository>();
         mockRepository.Setup(static repository => repository.GetRanking(It.IsAny<string>())).ReturnsAsync(result);
         Services.AddSingleton<IRankingRepository, RankingRepositoryImpl>();

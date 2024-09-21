@@ -9,8 +9,8 @@ using Moq;
 public sealed class QuarterlyRankingUseCaseTests : TestContext {
 
     [Fact] public async Task ShouldCallServiceStatus200() {
-        List<RankingDto> result = [new RankingDto(1, 1, "Ncode"), new RankingDto(2, 2, "Ncode")];
-        List<RankingOutPut> result2 = [new RankingOutPut("Ncode", 1, 1), new RankingOutPut("Ncode", 2, 2)];
+        List<RankingDto> result = [new(1, 1, "Ncode"), new(2, 2, "Ncode")];
+        List<RankingOutPut> result2 = [new("Ncode", 1, 1), new("Ncode", 2, 2)];
         var mockService = new Mock<IRankingService>();
         mockService.Setup(static service => service.GetRanking(It.IsAny<string>())).ReturnsAsync(result);
         Services.AddSingleton<IRankingService, RankingService>();
