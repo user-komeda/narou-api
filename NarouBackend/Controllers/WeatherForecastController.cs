@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace NarouBackend.Controllers;
 
+using Microsoft.AspNetCore.Authorization;
+
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase {
@@ -14,7 +17,7 @@ public class WeatherForecastController : ControllerBase {
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")] public void Get() {
+    [HttpGet(Name = "GetWeatherForecast")] [Authorize] public void Get() {
         _logger.Log(LogLevel.Critical, "controller");
     }
 }
