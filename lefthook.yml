@@ -1,9 +1,11 @@
 pre-commit:
   commands:
     test:
-      run: dotnet test
-  scripts:
-    "lint-front.sh":
-      runner: bash
-    "lint-backend.sh":
-      runner: bash
+      run:  dotnet-coverage collect -f xml -s settings.xml  "dotnet test"
+#    getCoverage:
+#      run:  bash getCoverage.sh
+#  scripts:
+#    "lint-front.sh":
+#      runner: bash
+#    "lint-backend.sh":
+#      runner: bash
