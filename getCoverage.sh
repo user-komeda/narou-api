@@ -17,7 +17,7 @@ echo "=================="
 for STR in $STRLIST #「list*」がワードリストです
 do
     echo $STR | grep "name=.*"
-    nnn=(`echo $STR | grep "line_coverage=.*"| sed '/^$/d'`)
+    nnn=`echo $STR | grep "line_coverage=.*"| sed '/^$/d'`
     if [ -z $nnn ]; then
       continue 
     fi
