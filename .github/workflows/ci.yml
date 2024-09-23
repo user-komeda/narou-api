@@ -24,6 +24,8 @@ jobs:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       - name: "test"
         run: dotnet test
+      - name: "getCoverage"
+        run: ./getCoverage.sh
   qodana-backend:
     runs-on: ubuntu-latest
     steps:

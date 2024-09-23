@@ -1,8 +1,8 @@
 pre-commit:
   commands:
-    test:
+    1-test:
       run:  dotnet-coverage collect -f xml -s settings.xml  "dotnet test"
-    getCoverage:
+    2-getCoverage:
       run:  bash getCoverage.sh
 #  scripts:
 #    "lint-front.sh":
