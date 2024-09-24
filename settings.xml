@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <CodeCoverage>
+        <ModulePaths>
+            <Exclude>
+                <!-- But exclude some assemblies: -->
+                <ModulePath>RichardSzalay.MockHttp.dll</ModulePath>
+            </Exclude>
+        </ModulePaths>
+        <Attributes>
+            <Exclude>
+                <Attribute>^System\.Diagnostics\.DebuggerHiddenAttribute$</Attribute>
+                <Attribute>^System\.Diagnostics\.DebuggerNonUserCodeAttribute$</Attribute>
+                <Attribute>^System\.CodeDom\.Compiler\.GeneratedCodeAttribute$</Attribute>
+                <Attribute>^System\.Diagnostics\.CodeAnalysis\.ExcludeFromCodeCoverageAttribute$</Attribute>
+            </Exclude>
+        </Attributes>
+        <Functions>
+            <Exclude>
+                <Function>^std::.*</Function>
+                <Function>^ATL::.*</Function>
+                <Function>.*Microsoft.*</Function>
+                <Function>.*Bunit.*</Function>
+                <Function>MoveNext()</Function>
+                <Function>.*_.*</Function>
+                <Function>.*Main.*</Function>
+                <Function>RichardSzalay.MockHttp.dll</Function>
+                <Function>OnInitialized()</Function>
+                <Function>.*Tests</Function>
+            </Exclude>
+        </Functions>
+    </CodeCoverage>
+</Configuration>
