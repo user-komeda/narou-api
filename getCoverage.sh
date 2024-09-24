@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 STRLIST=`grep -o "<function[^s].*" output.xml | awk '{print $4, $5, $7, $8}'`
 for STR in $STRLIST #「list*」がワードリストです
 do
