@@ -4,6 +4,7 @@
 @using NarouApp.Frontend.Components.CustomComponent.Ranking.Application
 @using NarouApp.Frontend.Components.CustomComponent.Ranking.Application.Quarterly
 @using NarouApp.Frontend.Components.CustomComponent.Util
+@using DateTime=NarouApp.Frontend.Components.CustomComponent.Util.DateTime
 @using Xunit
 @inherits Bunit.TestContext
 
@@ -11,18 +12,41 @@
     [Fact] public void ShouldRenderQuaterlyRankingComponentResultNotEmpty() {
         var mockUseCase = new Mock<IBaseUseCase<RankingInput, List<RankingOutPut>>>();
         Services.AddKeyedSingleton(nameof(QuarterlyRankingUseCase), mockUseCase.Object);
+        Services.AddSingleton<IDateTime, DateTime>();
         Services.AddBlazoredLocalStorage();
-        mockUseCase.Setup(static useCase => useCase.Invoke(It.IsAny<RankingInput>())).Returns(Task.FromResult<List<RankingOutPut>>([new RankingOutPut("Ncode", 1, 1)]));
+        mockUseCase.Setup(static useCase => useCase.Invoke(It.IsAny<RankingInput>())).Returns(Task.FromResult<List<RankingOutPut>>([
+            new RankingOutPut(2000,
+            5000,
+            7000,
+            9000,
+            2,
+            "N8692BO",
+            "title",
+            2,
+            "Writer",
+            "Story",
+            "KeyWord")
+        ]));
         var cut = Render(@<QuarterlyRankingComponent/>);
         cut.Find("ul").MarkupMatches(@<ul>
-            <span>
-                <li>Ncode</li><li>1</li><li>1</li>
-            </span>
+            <article class="message">
+                <div class="message-body">
+                    <p class="title is-5">title</p>
+                    <p class="subtitle is-6">作者：Writer／作品情報／Nコード：N8692BO</p>
+                    <p>Story</p>
+                    <p>キーワード： KeyWord</p>
+                    日間ポイント： 2000 pt
+                    週間ポイント： 5000 pt
+                    月間ポイント： 7000 pt
+                    四半期ポイント： 9000 pt
+                </div>
+            </article>
         </ul>);
     }
 
     [Fact] public void ShouldRenderQuaterlyRankingComponentResultEmpty() {
         var mockUseCase = new Mock<IBaseUseCase<RankingInput, List<RankingOutPut>>>();
+        Services.AddSingleton<IDateTime, DateTime>();
         Services.AddKeyedSingleton(nameof(QuarterlyRankingUseCase), mockUseCase.Object);
         Services.AddBlazoredLocalStorage();
         mockUseCase.Setup(static useCase => useCase.Invoke(It.IsAny<RankingInput>())).Returns(Task.FromResult<List<RankingOutPut>>([]));

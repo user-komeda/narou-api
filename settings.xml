@@ -26,6 +26,7 @@
                 <Function>.*Main.*</Function>
                 <Function>RichardSzalay.MockHttp.dll</Function>
                 <Function>OnInitialized()</Function>
+                <Function>HomeComponent()</Function>
                 <Function>.*Tests</Function>
             </Exclude>
         </Functions>

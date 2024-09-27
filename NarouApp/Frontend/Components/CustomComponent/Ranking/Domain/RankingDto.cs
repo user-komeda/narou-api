@@ -1,7 +1,27 @@
 namespace NarouApp.Frontend.Components.CustomComponent.Ranking.Domain;
 
-public class RankingDto(int pt, int rank, string ncode) {
-    public int Pt { get; } = pt;
-    public int rank { get; } = rank;
+public sealed class RankingDto(
+    int dailyPoint,
+    int weeklyPoint,
+    int monthlyPoint,
+    int quarterlyPoint,
+    int rank,
+    string ncode,
+    string title,
+    int userId,
+    string writer,
+    string story,
+    string keyWord) {
+    public int DailyPoint { get; } = dailyPoint;
+    public int WeeklyPoint { get; } = weeklyPoint;
+    public int MonthlyPoint { get; } = monthlyPoint;
+    public int QuarterlyPoint { get; } = quarterlyPoint;
+    public int Rank { get; } = rank;
     public string Ncode { get; } = ncode;
+    public string Title { get; } = title;
+    public int UserId { get; } = userId;
+    public string Writer { get; } = writer;
+    public string Story { get; } = story;
+    public string KeyWord { get; } = keyWord;
+
 }

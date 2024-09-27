@@ -21,9 +21,12 @@ exclude:
   - name: Html.PathError
   - name: ArrangeObjectCreationWhenTypeEvident
     paths:
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingRepositoryImplTests.cs
       - NarouApp/Frontend/Components/CustomComponent/Ranking/Infrastructure/RankingEntityTests.cs
-
-
+      - NarouApp/Frontend/Components/CustomComponent/Util/GetItemFromNcodeClientsTest.cs
+  - name: UnusedMembennr.Global
+    paths:
+      - NarouApp/Frontend/Components/CustomComponent/Ranking/Application/RankingOutPut.cs
 linter: jetbrains/qodana-dotnet:2024.2
 profile:
   name: qodana.recommended
