@@ -11,6 +11,7 @@ using NarouApp.Frontend.Components.CustomComponent.Ranking.Application.Weekly;
 using NarouApp.Frontend.Components.CustomComponent.Ranking.Domain;
 using NarouApp.Frontend.Components.CustomComponent.Ranking.Infrastructure;
 using NarouApp.Frontend.Components.CustomComponent.Util;
+using DateTime=NarouApp.Frontend.Components.CustomComponent.Util.DateTime;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,13 +24,24 @@ builder.Services
     .AddBulmaProviders()
     .AddSingleton<IRankingService, RankingService>()
     .AddSingleton<IRankingRepository, RankingRepositoryImpl>()
-    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, DailyRankingUseCase>(nameof(DailyRankingUseCase))
-    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, WeeklyRankingUseCase>(nameof(WeeklyRankingUseCase))
-    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, MonthlyRankingUseCase>(nameof(MonthlyRankingUseCase))
-    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, QuarterlyRankingUseCase>(nameof(QuarterlyRankingUseCase))
+    .AddSingleton<IGetItemFromNcodeClient, GetItemFromNcodeClient>()
+    .AddSingleton<IDateTime, DateTime>()
+    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, DailyRankingUseCase>(
+    nameof(DailyRankingUseCase))
+    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, WeeklyRankingUseCase>(
+    nameof(WeeklyRankingUseCase))
+    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, MonthlyRankingUseCase>(
+    nameof(MonthlyRankingUseCase))
+    .AddKeyedSingleton<IBaseUseCase<RankingInput, List<RankingOutPut>>, QuarterlyRankingUseCase>(
+    nameof(QuarterlyRankingUseCase))
     .AddBlazoredLocalStorage()
     .AddFontAwesomeIcons();
-builder.Services.AddHttpClient<IRankingRepository, RankingRepositoryImpl>(client => client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"));
+builder.Services.AddHttpClient<IRankingRepository, RankingRepositoryImpl>(client =>
+    client.DefaultRequestHeaders.Add("User-Agent",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"));
+builder.Services.AddHttpClient<IGetItemFromNcodeClient, GetItemFromNcodeClient>(client =>
+    client.DefaultRequestHeaders.Add("User-Agent",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"));
 
 var app = builder.Build();
 

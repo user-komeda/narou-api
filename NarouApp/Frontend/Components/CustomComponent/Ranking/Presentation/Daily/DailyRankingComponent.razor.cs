@@ -12,9 +12,14 @@ using Util;
 public sealed partial class DailyRankingComponent : ComponentBase {
 
     List<RankingOutPut> _result = [];
+
     [Inject(Key = nameof(DailyRankingUseCase))] IBaseUseCase<RankingInput, List<RankingOutPut>> RankingUseCase { get; set; } = null!;
 
+    [Inject] IDateTime DateTime { get; set; } = null!;
+
     protected override async Task OnInitializedAsync() {
-        _result = await RankingUseCase.Invoke(new RankingInput(DateTime.Now, FormatEnum.Json));
+        _result = await RankingUseCase.Invoke(new RankingInput(DateTime.GetDateTimeNow(),
+        FormatEnum.Json));
+        Console.WriteLine(_result);
     }
 }
