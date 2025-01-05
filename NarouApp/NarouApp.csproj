@@ -78,4 +78,4 @@
         <UpToDateCheckInput Remove="NarouAppTest\CounterRazorTests.razor"/>
         <UpToDateCheckInput Remove="NarouAppTest\_Imports.razor"/>
     </ItemGroup>
-</Project>
+</Project
