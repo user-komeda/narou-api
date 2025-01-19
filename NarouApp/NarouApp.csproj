@@ -17,7 +17,7 @@
         <PackageReference Include="Blazorise.Bulma" Version="1.7.2"/>
         <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.7.2"/>
         <PackageReference Include="FluentAssertions" Version="6.12.1"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="8.0.8"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="8.0.12" />
         <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4"/>
         <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0-rc.1.24431.7"/>
         <PackageReference Include="Moq" Version="4.20.71"/>
@@ -78,4 +78,4 @@
         <UpToDateCheckInput Remove="NarouAppTest\CounterRazorTests.razor"/>
         <UpToDateCheckInput Remove="NarouAppTest\_Imports.razor"/>
     </ItemGroup>
-</Project
+</Project>
