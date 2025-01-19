@@ -66,6 +66,6 @@ public sealed class QuarterlyRankingUseCaseTests : TestContext {
         var data =
             await dailyRankingUseCase.Invoke(new RankingInput(DateTime.Now, FormatEnum.Json));
         mockService.Verify(expression: static v => v.GetRanking(It.IsAny<string>()), Times.Once());
-        result2.Should().BeEquivalentTo(data, options => options.RespectingRuntimeTypes());
+        result2.Should().BeEquivalentTo(data);
     }
 }
