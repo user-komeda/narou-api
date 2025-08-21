@@ -12,7 +12,7 @@ jobs:
   qodana-front:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
           fetch-depth: 0  # a full history is required for pull request analysis
@@ -20,7 +20,7 @@ jobs:
         with:
           dotnet-version: '9.0.x'
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@e14351bdf4707c4cecc25a86a9190745b7b40de8 # v2025.1.1
+        uses: JetBrains/qodana-action@27de2a744479d1d731934eeaf79287575ebc5dd3 # v2025.2.1
         with:
           args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--source-directory,NarouApp/,--config,qodana-front.yaml
         env:
@@ -36,12 +36,12 @@ jobs:
   qodana-backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
           fetch-depth: 0  # a full history is required for pull request analysis
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@e14351bdf4707c4cecc25a86a9190745b7b40de8 # v2025.1.1
+        uses: JetBrains/qodana-action@27de2a744479d1d731934eeaf79287575ebc5dd3 # v2025.2.1
         with:
           args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--source-directory,NarouBackend/,--config,qodana-backend.yaml
         env:
