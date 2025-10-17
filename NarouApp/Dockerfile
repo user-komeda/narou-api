@@ -1,10 +1,10 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:20459dc8f0cccd42304c73239edaef18a4667664c0a4d44e25599eab6d9611ca AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:5b201bc57156a9f70d58a86112dc7a8217cf3a885740a8fe914b0782ee09647e AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8e8a5bbd8dd6a6c594d6c08775fd5fc4a40b67d6bbd27882e6e8b9d5684eac97 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:ed46c853a4f100ba7aab2394e9fb9f9b8989e93346b04632dbce11e5da7623d8 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["NarouApp.csproj", "./"]
