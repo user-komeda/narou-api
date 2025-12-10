@@ -15,7 +15,7 @@
     <ItemGroup>
         <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
         <PackageReference Include="Blazorise.Bulma" Version="1.8.7"/>
-        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.8.7"/>
+        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.8.8"/>
         <PackageReference Include="FluentAssertions" Version="8.8.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="9.0.11" />
         <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="4.14.0"/>
