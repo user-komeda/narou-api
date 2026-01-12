@@ -14,8 +14,8 @@
 
     <ItemGroup>
         <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
-        <PackageReference Include="Blazorise.Bulma" Version="1.8.7"/>
-        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.8.7"/>
+        <PackageReference Include="Blazorise.Bulma" Version="1.8.8"/>
+        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.8.8"/>
         <PackageReference Include="FluentAssertions" Version="8.8.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="10.0.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="4.14.0"/>
@@ -46,7 +46,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="bunit" Version="2.2.2"/>
+        <PackageReference Include="bunit" Version="2.5.3"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1"/>
     </ItemGroup>
 
