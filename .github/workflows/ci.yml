@@ -13,44 +13,45 @@ jobs:
   qodana-front:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@baa11fbfe1d6520db94683bd5c7a3818018e4309
         with:
           dotnet-version: '9.0.x'
 
-      - name: Qodana Scan (Front)
-        uses: JetBrains/qodana-action@v2025.3
+      - name: Qodana Scan
+        uses: JetBrains/qodana-action@42dad391966aca8ca344ca2340a7f43a5507e9b2
         with:
-          args: "--solution=NarouApp.sln --fail-threshold=1 --only-directory=NarouApp --config=qodana-front.yaml"
+          args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--source-directory,NarouApp/,--config,qodana-front.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 
-      - name: Install coverage tool
+      - name: install
         run: dotnet tool install --global dotnet-coverage
 
-      - name: Run tests
+      - name: test
         run: dotnet-coverage collect -f xml -s settings.xml "dotnet test"
 
-      - name: Run coverage script
-        run: |
-          chmod +x ./getCoverage.sh
-          ./getCoverage.sh
+      - name: chmod
+        run: sudo chmod +x ./getCoverage.sh
+
+      - name: getCoverage
+        run: ./getCoverage.sh
 
   qodana-backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Qodana Scan (Backend)
-        uses: JetBrains/qodana-action@v2025.3
+      - name: Qodana Scan
+        uses: JetBrains/qodana-action@42dad391966aca8ca344ca2340a7f43a5507e9b2
         with:
-          args: "--solution=NarouBackend.sln --fail-threshold=1 --only-directory=NarouBackend --config=qodana-backend.yaml"
+          args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--source-directory,NarouBackend/,--config,qodana-backend.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
