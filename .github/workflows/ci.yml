@@ -22,15 +22,10 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - name: Qodana Scan
+      - name: Qodana Scan (Front)
         uses: JetBrains/qodana-action@v2025.3
         with:
-          image: jetbrains/qodana-dotnet:2025.3
-          args: >
-            --solution NarouApp.sln
-            --fail-threshold 1
-            --source-directory NarouApp/
-            --config qodana-front.yaml
+          args: "--solution=NarouApp.sln --fail-threshold=1 --only-directory=NarouApp --config=qodana-front.yaml"
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 
@@ -40,7 +35,7 @@ jobs:
       - name: Run tests
         run: dotnet-coverage collect -f xml -s settings.xml "dotnet test"
 
-      - name: Get coverage
+      - name: Run coverage script
         run: |
           chmod +x ./getCoverage.sh
           ./getCoverage.sh
@@ -53,14 +48,9 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Qodana Scan
+      - name: Qodana Scan (Backend)
         uses: JetBrains/qodana-action@v2025.3
         with:
-          image: jetbrains/qodana-dotnet:2025.3
-          args: >
-            --solution NarouBackend.sln
-            --fail-threshold 1
-            --source-directory NarouBackend/
-            --config qodana-backend.yaml
+          args: "--solution=NarouBackend.sln --fail-threshold=1 --only-directory=NarouBackend --config=qodana-backend.yaml"
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
