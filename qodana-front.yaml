@@ -27,6 +27,6 @@ exclude:
   - name: UnusedMembennr.Global
     paths:
       - NarouApp/Frontend/Components/CustomComponent/Ranking/Application/RankingOutPut.cs
-linter: jetbrains/qodana-dotnet:2024.2
+linter: jetbrains/qodana-dotnet:2025.3
 profile:
   name: qodana.recommended
