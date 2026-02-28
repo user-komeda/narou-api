@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Qodana Scan
-        uses: JetBrains/qodana-action@ffcb814413b72d889076d8ec78294c2d91e8ad27
+        uses: JetBrains/qodana-action@47959779ad904ff46460e4373c65902d8474e90f
         with:
           args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--source-directory,NarouApp/,--config,qodana-front.yaml
         env:
@@ -50,7 +50,7 @@ jobs:
           fetch-depth: 0
 
       - name: Qodana Scan
-        uses: JetBrains/qodana-action@ffcb814413b72d889076d8ec78294c2d91e8ad27
+        uses: JetBrains/qodana-action@47959779ad904ff46460e4373c65902d8474e90f
         with:
           args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--source-directory,NarouBackend/,--config,qodana-backend.yaml
         env:
