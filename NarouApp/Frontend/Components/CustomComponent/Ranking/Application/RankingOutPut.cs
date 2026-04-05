@@ -8,10 +8,8 @@ public class RankingOutPut(
     int weeklyPoint,
     int monthlyPoint,
     int quarterlyPoint,
-    int rank,
     string ncode,
     string title,
-    int userId,
     string writer,
     string story,
     string keyWord) {
@@ -30,10 +28,8 @@ public class RankingOutPut(
         v.WeeklyPoint,
         v.MonthlyPoint,
         v.QuarterlyPoint,
-        v.Rank,
         v.Ncode,
         v.Title,
-        v.UserId,
         v.Writer,
         v.Story,
         v.KeyWord)).ToList();
