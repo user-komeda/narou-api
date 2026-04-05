@@ -4,5 +4,4 @@ using Exception=System.Exception;
 
 
 public class UserNotFoundException : Exception {
-    public UserNotFoundException() {}
 }

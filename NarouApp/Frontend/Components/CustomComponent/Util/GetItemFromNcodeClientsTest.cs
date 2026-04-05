@@ -7,7 +7,7 @@ using Ranking.Infrastructure;
 using RichardSzalay.MockHttp;
 
 
-public class GetItemFromNcodeClientsTest : TestContext {
+public class GetItemFromNcodeClientsTest : BunitContext {
     [Fact] public async Task ShouldGetItemFromNcodeClientsStatusOk() {
 
         List<RankingEntity> data =

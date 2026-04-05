@@ -10,7 +10,7 @@ using StockItems.Entity;
 using Xunit;
 
 
-public class StockItemsRepositoryImplTests : TestContext {
+public class StockItemsRepositoryImplTests : BunitContext {
     [Fact] public async Task ShouldSaveStockItem() {
         var applicationUser = new ApplicationUser();
         var stockItemsDto = new StockItemsDto("ncode", "title", "writer", "story", "keyWord");

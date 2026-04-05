@@ -10,7 +10,7 @@ using Repository;
 using Xunit;
 
 
-public sealed class StockItemsServiceTests : TestContext {
+public sealed class StockItemsServiceTests : BunitContext {
     [Fact] public async Task ShouldCreateStockItem() {
         var applicationUser = new ApplicationUser();
         var stockItemsDto = new StockItemsDto("ncode", "title", "writer", "story", "keyWord");

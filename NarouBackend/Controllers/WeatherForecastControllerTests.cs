@@ -4,8 +4,8 @@ using Bunit;
 using Xunit;
 
 
-public class WeatherForecastControllerTests : TestContext {
-    [Fact] public void weatherForecastControllerTest() {
+public class WeatherForecastControllerTests : BunitContext {
+    [Fact] public void WeatherForecastControllerTest() {
         var result = new WeatherForecastController().Get();
         Assert.Equal("", result);
     }

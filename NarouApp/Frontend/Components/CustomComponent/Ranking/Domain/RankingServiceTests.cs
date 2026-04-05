@@ -4,7 +4,7 @@ using Infrastructure;
 using Moq;
 
 
-public sealed class RankingServiceTests : TestContext {
+public sealed class RankingServiceTests : BunitContext {
     [Fact] public async Task ShouldCallServiceStatus200() {
         List<RankingDto> result =
         [

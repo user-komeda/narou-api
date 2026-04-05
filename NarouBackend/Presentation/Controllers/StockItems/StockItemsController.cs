@@ -7,13 +7,11 @@ using Infrastructure.StockItems.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NarouBackend.Application;
-using NarouBackend.Infrastructure;
-using NarouBackend.util;
+using util;
 
 
 [ApiController]
-[Microsoft.AspNetCore.Mvc.Route("users/{pathUserId}/stockitems")]
+[Route("users/{pathUserId}/stockitems")]
 [ProducesResponseType<StockItemsOutput>(StatusCodes.Status201Created)]
 public class StockItemsController : ControllerBase {
 

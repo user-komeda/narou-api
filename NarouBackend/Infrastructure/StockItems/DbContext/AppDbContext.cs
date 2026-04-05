@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 public class AppDbContext(DbContextOptions<AppDbContext> options)
     : IdentityUserContext<ApplicationUser>(options) {
     public DbSet<StockItemsEntity> StockItemsEntity { get; set; }
-    public DbSet<ApplicationUser?> applicationUser { get; set; }
+    public DbSet<ApplicationUser> applicationUser { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder) {
         base.OnModelCreating(builder);

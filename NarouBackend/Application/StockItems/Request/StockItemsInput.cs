@@ -1,8 +1,6 @@
 namespace NarouBackend.Application.StockItems.Request;
 
 using Domain.StockItems.Dto;
-using NarouBackend.Domain;
-
 
 public sealed class StockItemsInput(
     string ncode,

@@ -12,7 +12,7 @@ using Response;
 using Xunit;
 
 
-public sealed class StockItemsCreateUseCaseTests : TestContext {
+public sealed class StockItemsCreateUseCaseTests : BunitContext {
     [Fact] public async Task ShouldCreateItem() {
         var userId = "965df755-9105-4f30-82e6-06888cba1142";
         var applicationUser = new ApplicationUser();
