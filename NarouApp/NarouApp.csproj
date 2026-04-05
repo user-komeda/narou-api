@@ -62,8 +62,7 @@
 
     <ItemGroup>
         <AdditionalFiles Include="Frontend\Components\App.razor" />
-        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Application\Monthly\MonthlyRankingComponent.razor" />
-        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Presentation\Monthly\MonthlyRankingComponentTests.razor" />
+        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Presentation\Monthly\MonthlyRankingComponent.razor" />        <AdditionalFiles Include="Frontend\Components\CustomComponent\Ranking\Presentation\Monthly\MonthlyRankingComponentTests.razor" />
         <AdditionalFiles Include="Frontend\Components\Layout\MainLayout.razor" />
         <AdditionalFiles Include="Frontend\Components\Layout\NavMenu.razor" />
         <AdditionalFiles Include="Frontend\Components\Pages\Error.razor" />
