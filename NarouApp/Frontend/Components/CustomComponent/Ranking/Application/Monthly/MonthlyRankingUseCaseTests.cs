@@ -5,7 +5,7 @@ using FluentAssertions;
 using Moq;
 
 
-public sealed class MonthlyRankingUseCaseTests : TestContext {
+public sealed class MonthlyRankingUseCaseTests : BunitContext {
 
     [Fact] public async Task ShouldCallServiceStatus200() {
         List<RankingDto> result =

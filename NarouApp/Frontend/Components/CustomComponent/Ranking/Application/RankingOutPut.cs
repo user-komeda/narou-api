@@ -19,10 +19,8 @@ public class RankingOutPut(
     public int WeeklyPoint { get; } = weeklyPoint;
     public int MonthlyPoint { get; } = monthlyPoint;
     public int QuarterlyPoint { get; } = quarterlyPoint;
-    public int Rank { get; } = rank;
     public string Ncode { get; } = ncode;
     public string Title { get; } = title;
-    public int UserId { get; } = userId;
     public string Writer { get; } = writer;
     public string Story { get; } = story;
     public string KeyWord { get; } = keyWord;

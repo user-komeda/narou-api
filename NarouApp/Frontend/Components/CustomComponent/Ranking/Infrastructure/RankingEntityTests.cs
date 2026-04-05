@@ -4,7 +4,7 @@ using Domain;
 using FluentAssertions;
 
 
-public sealed class RankingEntityTests : TestContext {
+public sealed class RankingEntityTests : BunitContext {
     [Fact] public void ShouldConvertRankingEntityToRankingDto() {
         List<RankingEntity> data =
         [

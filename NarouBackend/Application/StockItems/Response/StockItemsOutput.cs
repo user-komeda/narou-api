@@ -1,6 +1,5 @@
 namespace NarouBackend.Application.StockItems.Response;
 
-using Domain;
 using Domain.StockItems.Dto;
 
 

@@ -10,7 +10,7 @@ using Util;
 using DateTime=DateTime;
 
 
-public sealed class RankingRepositoryImplTests : TestContext {
+public sealed class RankingRepositoryImplTests : BunitContext {
     [Fact] public async Task ShouldHttpStatusOk() {
         List<RankingDto> result =
         [

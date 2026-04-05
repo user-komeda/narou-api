@@ -3,7 +3,6 @@ namespace NarouBackend.Infrastructure;
 using Domain.StockItems.Dto;
 using Domain.StockItems.Repository;
 using Microsoft.EntityFrameworkCore;
-using StockItems.DbContext;
 using StockItems.Entity;
 
 
