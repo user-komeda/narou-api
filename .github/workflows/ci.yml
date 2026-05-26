@@ -25,7 +25,7 @@ jobs:
       - name: Qodana Scan
         uses: JetBrains/qodana-action@d436fca942c9a0f6b4d7b35f533b52d4e4a9278a
         with:
-          args: --property=qodana.net.solution=NarouApp.sln,--fail-threshold,1,--source-directory,NarouApp/,--config,qodana-front.yaml
+          args: --property=qodana.net.solution=NarouApp.sln --fail-threshold 1 --config qodana-front.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 
@@ -52,6 +52,6 @@ jobs:
       - name: Qodana Scan
         uses: JetBrains/qodana-action@d436fca942c9a0f6b4d7b35f533b52d4e4a9278a
         with:
-          args: --property=qodana.net.solution=NarouBackend.sln,--fail-threshold,1,--source-directory,NarouBackend/,--config,qodana-backend.yaml
+          args: --property=qodana.net.solution=NarouBackend.sln --fail-threshold 1 --config qodana-backend.yaml
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
