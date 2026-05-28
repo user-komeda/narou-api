@@ -1,30 +1,35 @@
 #!/bin/sh
-STRLIST=`grep -o "<function[^s].*" output.xml | awk '{print $4, $5, $7, $8}'`
-for STR in $STRLIST #「list*」がワードリストです
-do
-    echo $STR | grep "name=.*"
-    nnn=`echo $STR | grep "block_coverage=.*"`
-    if [ -z $nnn ]; then 
-      continue 
-    fi
-   block_coverage=`echo $STR | grep "block_coverage=.*"| sed -e "s/^block_coverage=\"\([^\"]*\)\".*$/\1/g" | awk '{printf("%d\n",$1+=$1<0?0:0.999)}'`
-   if [ 100 -gt $block_coverage ] ; then 
-        echo "command error1"
-        exit 1
-   fi
-done
-echo "=================="
-for STR in $STRLIST #「list*」がワードリストです
-do
-    echo $STR | grep "name=.*"
-    nnn=`echo $STR | grep "line_coverage=.*"| sed '/^$/d'`
-    if [ -z $nnn ]; then
-      continue 
-    fi
-   line_coverage=`echo $STR | grep "line_coverage=.*"| sed -e "s/^line_coverage=\"\([^\"]*\)\".*$/\1/g" | awk '{printf("%d\n",$1+=$1<0?0:0.999)}'`
-   if [ 100 -gt $line_coverage ] ; then 
-         echo "command error"
-         exit 1 
-   fi
-done
 
+check_coverage() {
+    coverage_type="$1"
+    error_message="$2"
+
+    grep '<function ' output.xml | grep 'namespace="NarouApp' | while IFS= read -r line
+    do
+        name=$(echo "$line" | sed -n 's/.*name="\([^"]*\)".*/\1/p')
+        namespace=$(echo "$line" | sed -n 's/.*namespace="\([^"]*\)".*/\1/p')
+        type_name=$(echo "$line" | sed -n 's/.*type_name="\([^"]*\)".*/\1/p')
+        coverage=$(echo "$line" | sed -n "s/.*${coverage_type}=\"\([^\"]*\)\".*/\1/p")
+
+        if [ -z "$coverage" ]; then
+            continue
+        fi
+
+        echo "$namespace.$type_name.$name"
+
+        coverage_int=$(echo "$coverage" | awk '{printf("%d\n",$1+=$1<0?0:0.999)}')
+
+        if [ 100 -gt "$coverage_int" ]; then
+            echo "${coverage_type}=$coverage"
+            echo "failed: $namespace.$type_name.$name"
+            echo "$error_message"
+            exit 1
+        fi
+    done
+}
+
+check_coverage "block_coverage" "command error1"
+
+echo "=================="
+
+check_coverage "line_coverage" "command error"
