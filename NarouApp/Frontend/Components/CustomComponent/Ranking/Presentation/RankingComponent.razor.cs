@@ -5,8 +5,7 @@ namespace NarouApp.Frontend.Components.CustomComponent.Ranking.Presentation;
 
 using Application;
 using Blazored.LocalStorage;
-using Newtonsoft.Json;
-using JsonSerializer=System.Text.Json.JsonSerializer;
+using System.Text.Json;
 
 
 public sealed partial class RankingComponent : ComponentBase {
@@ -23,10 +22,10 @@ public sealed partial class RankingComponent : ComponentBase {
         Console.WriteLine(ncodeJson);
         if (ncodeJson == null){
             Console.WriteLine("aaa");
-            await LocalStorage.SetItemAsync(uuid, JsonConvert.SerializeObject(new List<KeyValuePair<string, string>> { new("ncode", ncode) }));
+            await LocalStorage.SetItemAsync(uuid, JsonSerializer.Serialize(new List<KeyValuePair<string, string>> { new("ncode", ncode) }));
             return;
         }
-        var deserializeNcodeList = JsonConvert.DeserializeObject<List<KeyValuePair<string, string>>>(ncodeJson) ?? [];
+        var deserializeNcodeList = JsonSerializer.Deserialize<List<KeyValuePair<string, string>>>(ncodeJson) ?? [];
         deserializeNcodeList.Add(new KeyValuePair<string, string>("ncode", ncode));
         await LocalStorage.SetItemAsync(uuid, JsonSerializer.Serialize(deserializeNcodeList));
     }
