@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-dotnet@a66eefa2bf2572fc311ea6ff65a7b6ecc4df96a6
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: '11.0.x'
 
       - name: Qodana Scan
         uses: JetBrains/qodana-action@d436fca942c9a0f6b4d7b35f533b52d4e4a9278a
