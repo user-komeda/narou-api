@@ -1,6 +1,7 @@
 namespace NarouBackend.util;
 
 using System.Net;
+using MailKit;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using MimeKit;
